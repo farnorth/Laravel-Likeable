@@ -79,7 +79,7 @@ trait HasLikesTrait
     public function like(Model $likedBy): void
     {
         if ($this->getLikedRecord($likedBy)) {
-            return false;
+            return;
         }
 
         $like = new Like();
@@ -98,7 +98,7 @@ trait HasLikesTrait
     public function dislike(Model $likedBy): void
     {
         if (!$like = $this->getLikedRecord($likedBy)) {
-            return false;
+            return;
         }
 
         $like->delete();
